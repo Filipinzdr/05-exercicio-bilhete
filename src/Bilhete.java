@@ -20,15 +20,8 @@ public class Bilhete {
         this.saldo += valor;
 
     }
-    public double verSaldo(long numero){
-        if(numero != this.numero) {
-            return this.saldo;
-        }
-        else {
-            System.out.println("numero invalido");
-
-        }
-        return 0;
+    public double verSaldo() {
+        return this.saldo;
     }
 
    public boolean passarCatraca(){
