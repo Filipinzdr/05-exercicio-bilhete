@@ -96,7 +96,13 @@ public class Util {
     }
 
     private void removerBilhete() {
-
+        int i = pesquisar();
+        if (i == -1){return;};
+        for (; i < index-1; i++) {
+            bilhete[i] = bilhete[(i+1)];
+        }
+        bilhete[index-1] = null;
+        index--;
     }
 
     private void emitirBilhete() {
