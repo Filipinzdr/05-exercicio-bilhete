@@ -96,12 +96,12 @@ public class Util {
     }
 
     private void removerBilhete() {
+        if (showConfirmDialog(null,"Tem certeza que deseja remover um bilhete?") != 0) {
+            return;
+        }
         int i = pesquisar();
         if (i == -1){return;};
-        for (; i < index-1; i++) {
-            bilhete[i] = bilhete[(i+1)];
-        }
-        bilhete[index-1] = null;
+        bilhete[i] = bilhete[index-1];
         index--;
     }
 
@@ -138,10 +138,12 @@ public class Util {
             aux += "CPF: " + bilhete[i].usuario.cpf + "\n";
             aux += "Saldo: R$" + df.format(bilhete[i].saldo) + "\n";
             aux += "Perfil (tipo de tarifa)" + bilhete[i].usuario.perfil + "\n";
+            aux += "-----------------------------\n";
 
-            showMessageDialog(null, aux);
 
         }
+            showMessageDialog(null, aux);
+
     }
 
     private int pesquisar() {
